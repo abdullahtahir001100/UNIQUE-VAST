@@ -1,6 +1,6 @@
 "use client";
+import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
 
 interface AnimatedRevealProps {
   children: React.ReactNode;
@@ -19,7 +19,7 @@ export default function AnimatedReveal({
   className = "",
   style = {}
 }: AnimatedRevealProps) {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   const variants = {
@@ -45,7 +45,7 @@ export default function AnimatedReveal({
       ref={ref}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      variants={variants}
+    //   variants={variants}
       className={className}
       style={style}
     >
